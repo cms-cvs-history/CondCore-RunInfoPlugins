@@ -16,10 +16,13 @@ tag = 'lumitest'
 try :
     iov = inspect.Iov(db,tag)
     print "===iov list ==="
-    print iov.list()
+    iovlist=iov.list()
+    print iovlist
+    
     print "===payload dump ==="
-    payload = inspect.PayLoad(db,'[DB=00000000-0000-0000-0000-000000000000][CNT=LuminosityInfo][CLID=418F38D4-68F7-018F-944F-1B0B230A0B1D][TECH=00000B01][OID=00000004-00000056]')
-    print payload.summary()
+    for p in iovlist:
+        payload=inspect.PayLoad(db,p[0])
+        print payload.summary()
 except Exception, er :
     print er
 
