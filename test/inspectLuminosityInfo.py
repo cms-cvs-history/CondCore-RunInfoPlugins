@@ -30,6 +30,12 @@ try :
     #print 'trend lumivalue vs. lumiid'
     what={}
     print iov.trend(what)
+    print "===user comment===="
+    print iov.comment()
+    print "===iov revision==="
+    print iov.revision()
+    print "===payload container name==="
+    print iov.payloadContainerName()
 except Exception, er :
     print er
 
