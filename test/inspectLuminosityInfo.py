@@ -29,7 +29,6 @@ try :
     print inspect.extractorWhat(db,tag)
     #print 'trend lumivalue vs. lumiid'
     what={}
-    #    what['lumiavg']=1
     print iov.trend(what)
 except Exception, er :
     print er
