@@ -2,6 +2,7 @@ import os,sys, DLFCN
 sys.setdlopenflags(DLFCN.RTLD_GLOBAL+DLFCN.RTLD_LAZY)
 
 from pluginCondDBPyInterface import *
+
 a = FWIncantation()
 rdbms = RDBMS()
 dbName =  "sqlite_file:offlinelumi.db"
@@ -18,11 +19,18 @@ try :
     print "===iov list ==="
     iovlist=iov.list()
     print iovlist
-    
+    print "===iov summaries ==="
+    print iov.summaries()
     print "===payload dump ==="
     for p in iovlist:
         payload=inspect.PayLoad(db,p[0])
         print payload.summary()
+    print "===print lumi vs time values==="
+    print inspect.extractorWhat(db,tag)
+    #print 'trend lumivalue vs. lumiid'
+    what={}
+    #    what['lumiavg']=1
+    print iov.trend(what)
 except Exception, er :
     print er
 
