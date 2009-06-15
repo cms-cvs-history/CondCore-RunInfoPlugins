@@ -21,10 +21,12 @@ try :
     print iovlist
     print "===iov summaries ==="
     print iov.summaries()
-    print "===payload dump ==="
-    for p in iovlist:
-        payload=inspect.PayLoad(db,p[0])
-        print payload.summary()
+    print "===payload dump lumisec 1==="
+    payloadstrdump=iov.payloadSummaries()
+    print payloadstrdump[0]
+    #for p in iovlist:
+    #    payload=inspect.PayLoad(db,p[0])
+    #    print payload.summary()
     print "===print lumi vs time values==="
     print inspect.extractorWhat(db,tag)
     #print 'trend lumivalue vs. lumiid'
